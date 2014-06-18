@@ -1,0 +1,73 @@
+(function(Main, config, Ractive, Backbone, _, $) {
+	
+	'use strict';
+
+	var productListResponse = null;
+
+	var headerView = new Ractive({
+		el : 'header',
+		template : '<div id="header" class="cf"><img src="{{imgSrc}}" width="164" height="26" style="margin: 5px 0 0 5px;"/></div>',
+		data : {
+			imgSrc : '../../img/logo.png'
+		}
+	});
+
+	Main.Models.Product = Backbone.Model.extend({
+		defaults : {
+			brand_name : 'n/a',
+			short_description : 'n/a',
+			sale_price : '0.00',
+			actual_price : '0.00',
+			url_key : 'http://www.zizigo.com/500',
+			img : 'n/a'
+		}
+	});
+
+	Main.Collections.Product = Backbone.Collection.extend({
+	  
+	  model : Main.Models.Product,
+	  
+	  url : config.urls.favouriteProducts,
+	  
+	  initialize: function(){
+      this.fetch({
+        success: this.fetchSuccess,
+        error: this.fetchError
+      });
+    },
+
+    fetchSuccess: function (collection, response) {
+      productListResponse = response;
+    },
+
+    fetchError: function (collection, response) {
+      throw new Error("Products fetch error...");
+    }
+
+	});
+
+	var products = new Main.Collections.Product;
+
+	products.fetch();
+
+	console.log(products.toJSON());
+
+/*
+	var productList = Main.Views.ProductList = new Ractive({
+		el : 'ZizigoChromeApp',
+		template : '#productTemplate',
+		data : {
+			products: products.toJSON(),
+			adapt: ['Backbone'] 
+		}
+	});
+*/
+
+	debugger;
+
+	var test = 1;
+
+	//productList.set({products : productsCollection.toJSON()});
+
+})(Main, config, Ractive, Backbone, _, jQuery);
+

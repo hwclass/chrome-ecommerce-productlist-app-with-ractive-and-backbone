@@ -1,0 +1,33 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+<div id="mainPopup">
+	<header></header>
+	<div id="ZizigoChromeApp">
+		<script id="productTemplate" type="text/ractive">
+			<ul id="product_list" class="cf">
+				{{#products}}
+					<li>
+						<a class="product-link" href="{{url_key}}" target="_blank">
+							<img src="{{img}}" alt="{{brand_name}}">
+							<div class="price">
+								<p class="brand-name">{{brand_name}}</p>
+								<p class="brand-detail">{{short_description}}</p>
+								<p class="price-detail-old">{{actual_price}} TL</p>
+								<p class="price-detail">{{sale_price}}</p>
+							</div>
+							<div class="product-overlay hidden"></div>
+						</a>
+					</li>
+				{{/products}}
+			</ul>
+		</script>
+	</div>	
+</div>
+<script src="../../js/jquery/jquery.min.js"></script>
+<script src="../../js/ractive/ractive.min.js"></script>
+<script src="../../js/underscore/underscore.min.js"></script>
+<script src="../../js/backbone/backbone.min.js"></script>
+<script src="../../js/ractive/ractive-adaptors-backbone.min.js"></script>
+<script src="config.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="app.js"></script>
