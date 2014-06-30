@@ -1,9 +1,9 @@
 {
-  "name": "Zizigo",
+  "name": "app name",
   "version": "0.1.1",
   "manifest_version": 2,
-  "description": "Zizigo Chrome Extension Developed with RactiveJS & Backbone",
-  "homepage_url": "http://www.zizigo.com",
+  "description": "app description",
+  "homepage_url": "app url",
   "icons": {
     "16": "icons/icon16.gif",
     "48": "icons/icon48.png",
@@ -16,7 +16,7 @@
   },
   "browser_action": {
     "default_icon": "icons/icon48.png",
-    "default_title": "zizigo.com",
+    "default_title": "app default title",
     "default_popup": "src/browser_action/browser_action.html"
   },
   "chrome_url_overrides": {
